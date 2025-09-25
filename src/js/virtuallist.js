@@ -23,13 +23,10 @@ export class VirtualList {
         this.viewModeSelect = document.getElementById('view-mode');
         this.virtualToggle = document.getElementById('virtual-toggle');
         
-        // Debug: Check if elements are found
-        console.log('Performance elements found:', {
-            renderTime: !!this.renderTimeElement,
-            scrollSpeed: !!this.scrollSpeedElement,
-            itemsPerSecond: !!this.itemsPerSecondElement,
-            visibleItems: !!this.visibleItemsElement
-        });
+        // Verify performance metric elements are available
+        if (!this.renderTimeElement || !this.scrollSpeedElement || !this.itemsPerSecondElement) {
+            console.warn('Some performance metric elements not found');
+        }
         
         // Data and state
         this.data = [];
